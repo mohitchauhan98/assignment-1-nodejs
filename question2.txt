@@ -1,0 +1,60 @@
+const LoopNames = (names) => {
+  names.map((data, i) => {
+    console.log(data);
+  });
+};
+
+for (var i = 0; i <= 5; i++) {
+  console.log(`${i}`);
+}
+
+console.log("Hello");
+
+setTimeout(() => {
+  console.log("In SetTimeout with timer 0");
+
+  setTimeout(() => {
+    LoopNames(["Rahul", "Ramesh"]);
+
+    console.log("Second SetTimeout with timer as 0");
+
+    setTimeout(() => {
+      console.log("Third SetTimeout with timer as 0");
+    }, 0);
+  }, 0);
+}, 0);
+
+
+OUTPUT OF THE ABOVE CODE:-
+
+0
+1
+2
+3
+4
+5
+Hello
+In SetTimeout with timer 0
+Rahul
+Ramesh
+Second SetTimeout with timer as 0
+Third SetTimeout with timer as 0
+
+
+EXPLAINATION OF ABOVE CODE- WE DECLARED a const function loopnames and then we pass parameter named names within it and then we map it with data var and we are simply priting the input parameter using mapped data. then firstly we declared a for loop so it is printing the range of the for loop then it is printing hello world then after that we called setimeout function and we called loopnames function within it with the time gap of 0 ms so it printing passed names parameters and then after than it execting console.log message then we declared another settimeout fucntion whihc is executing one by one with the time gap of 0 seconds
+
+
+
+EVENT-LOOP:-
+Event loop, as the name suggests, is a single-thread, loop that is almost infinite. We say almost infinite as it has some hard limits if it does find itself in an infinite loop. The reason this single-threaded loop can perform otherwise blocking operations in a non-blocking manner is due to offloading. Node.js offloads operations to the system kernel whenever possible. The loop in event loop refers to Node.js cycling through operations in order. We call these operations phases. Let’s take a look at the event loop.
+
+CALL STACK:-
+call stack is responsible for keeping track of all the operations in line to be executed. Whenever a function is finished, it is popped from the stack.
+
+CALLBACK QUEUE:-
+After the timer gets expired, the callback function is put inside the Callback Queue, and the Event Loop checks if the Call Stack is empty and if empty, pushes the callback function from Callback Queue to Call Stack and the callback function gets removed from the Callback Queue. Then the Call Stack creates an Execution Context and executes it. 
+
+STREAMS AND EVENT EMITTER :
+The EventEmitter is a module that facilitates communication/interaction between objects in Node. EventEmitter is at the core of Node asynchronous event-driven architecture. ... The concept is quite simple: emitter objects emit named events that cause previously registered listeners to be called
+
+Streams are objects that allows developers to read/write data to and from a source in a continuous manner. There are four main types of streams in Node. js; readable, writable, duplex and transform. Each stream is an eventEmitter instance that emits different events at several intervals.
